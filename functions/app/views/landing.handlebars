@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <title>Buzzie Pay</title>
+
+  <link rel="manifest" href="manifest.json?v=3">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  {{!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> --}}
+  
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/7.10.0/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/7.10.0/firebase-auth.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <style media="screen">
+    body {
+      background: #FFF;
+      background-image: url('/img/bg1.png');
+      color: rgba(0, 0, 0, 0.87);
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero {
+      margin: 100px;
+      font-size: 5rem;
+      color: cornsilk;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id='root' class="hero">
+    Chain
+  </div>
+  <script>
+    window.initialState = {{{initialState}}}
+  </script>
+  <script type="text/javascript" src="/js/bundle.js"></script>
+</body>
+</html>
