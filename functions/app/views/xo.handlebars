@@ -101,8 +101,9 @@
         const db = getDatabase(app)
         
         const orderRef = ref(db, `/merchants/` + {{{merchantId}}} + `/online_orders/` + {{{xoId}}})
-        console.log(`/merchants/` + {{{merchantId}}} + `/online_orders/` + {{{xoId}}})
+
         onValue(orderRef, (snap) => {
+            if (!snap.exists()) return;
               const {
                   xoId
               } = snap.val();

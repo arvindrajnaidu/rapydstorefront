@@ -3,7 +3,7 @@ const fetch = require("axios");
 
 const Rapyd = () => {
   return {
-    async createToken({ amt }) {
+    async createToken({ amt, merchantId, orderId }) {
       const http_method = "post"; // get|put|post|delete - must be lowercase.
       const url_path = "/v1/checkout"; // Portion after the base URL. Hardkeyed for this example.
       const salt = CryptoJS.lib.WordArray.random(12); // Randomly generated for each request.
@@ -11,9 +11,9 @@ const Rapyd = () => {
         Math.floor(new Date().getTime() / 1000) - 10
       ).toString();
       // Current Unix time (seconds).
-      const access_key = "4C4CC04982E326770898"; // The access key received from Rapyd.
+      const access_key = "CFB204C89F18689897CC"; // The access key received from Rapyd.
       const secret_key =
-        "b1281aab5d9bdd54cb14fae3f0f6338eedacc99d2fd89151b271af7b865bf8e7c26f883ada7e0764"; // Never transmit the secret key by itself.
+        "07e500de014ee6f79c380bfb153a022794be1519d6ec509861687a39195904b14582fb3fc4417939"; // Never transmit the secret key by itself.
       const expiration = Date.now() + 60000;
       const body = {
         amount: amt,
@@ -25,6 +25,8 @@ const Rapyd = () => {
         language: "en",
         metadata: {
           merchant_defined: true,
+          merchantId,
+          orderId,
         },
         payment_method_types_include: ["sg_grabpay_ewallet"],
         expiration: Math.floor(new Date().getTime() / 1000) + 60000,
